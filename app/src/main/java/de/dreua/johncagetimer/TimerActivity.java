@@ -205,7 +205,7 @@ public class TimerActivity extends AppCompatActivity {
         }
         long time = System.currentTimeMillis() - start;
         long minutes = time / 60000l;
-        long centiSeconds = (time - minutes * 60000) / 100;
+        long deciSeconds = (time - minutes * 60000) / 100;
 
         timeBuilder.setLength(0);
         timeBuilder.append(minutes).append('.');
@@ -214,11 +214,11 @@ public class TimerActivity extends AppCompatActivity {
         // smallest: 001
         // biggest:  599
         for (int i = 10; i <= 100; i *= 10) {
-            if (centiSeconds < i) {
+            if (deciSeconds < i) {
                 timeBuilder.append('0');
             }
         }
-        timeBuilder.append(centiSeconds);
+        timeBuilder.append(deciSeconds);
         mTimeView.setText(timeBuilder);
     }
 
